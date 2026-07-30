@@ -131,6 +131,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.data .amount-paid-container input {
+  width: 40%;
+}
 .data .submit-btn {
   width: 30%;
   height: 2.5rem;
@@ -203,6 +206,7 @@ body {
 
 .result {
   padding: 1rem;
+  padding-left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -229,7 +233,7 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 0.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
   border: none;
   background-color: var(--result-container);
   padding: 1rem;
@@ -247,30 +251,42 @@ body {
   gap: 2rem;
 }
 .result .display__result h3 {
+  width: 100%;
   font-size: 2.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
   text-align: center;
+  border-bottom: 0.125rem dashed var(--white);
+  margin-bottom: 1.5rem;
 }
 .result .display__result .result__top,
 .result .display__result .result__center {
-  width: 90%;
+  width: 80%;
 }
 .result .display__result p {
   padding-bottom: 0.5rem;
 }
 .result .display__result .result__top {
   padding-bottom: 3rem;
-  border-bottom: 0.125rem solid var(--white);
   font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .result .display__result .result__top p {
   text-transform: uppercase;
   color: var(--white);
+  width: 90%;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 1rem;
+  justify-items: start;
 }
 .result .display__result .result__top span {
   color: var(--accent);
   font-size: 1.2em;
   font-weight: 800;
+  border-bottom: 0.125rem solid var(--accent);
+  justify-self: end;
 }
 .result .display__result .result__center {
   font-size: 1.125rem;
