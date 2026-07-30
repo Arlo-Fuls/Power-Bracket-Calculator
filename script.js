@@ -24,23 +24,23 @@ const VAT_fraction = 0.13044;
 const tarrifData = [
   {
     min: 0,
-    max: bracket_1_maxValueField,
-    price: bracket_1_costField,
+    max: bracket_1_maxValueField.value,
+    price: bracket_1_costField.value,
   },
   {
-    min: bracket_2_minValueField,
-    max: bracket_2_maxValueField,
-    price: bracket_2_costField,
+    min: bracket_1_maxValueField.value,
+    max: bracket_2_maxValueField.value,
+    price: bracket_2_costField.value,
   },
   {
-    min: bracket_3_minValueField,
-    max: bracket_3_maxValueField,
-    price: bracket_3_costField,
+    min: bracket_2_maxValueField.value,
+    max: bracket_3_maxValueField.value,
+    price: bracket_3_costField.value,
   },
   {
-    min: bracket_4_minValueField,
+    min: bracket_3_maxValueField.value,
     max: undefined,
-    price: bracket_4_costField,
+    price: bracket_4_costField.value,
   },
 ];
 
@@ -86,6 +86,40 @@ paymentInputField.addEventListener("change", () => {
   calculateUnitAmount(paymentInputField.value);
 });
 
+bracket_1_maxValueField.addEventListener("input", () => {
+  tarrifData[0]["max"] = bracket_1_maxValueField.value;
+  tarrifData[1]["min"] = bracket_1_maxValueField.value;
+  bracket_2_minValueField.innerText = bracket_1_maxValueField.value;
+});
+
+bracket_2_maxValueField.addEventListener("input", () => {
+  tarrifData[1]["max"] = bracket_2_maxValueField.value;
+  tarrifData[2]["min"] = bracket_2_maxValueField.value;
+  bracket_3_minValueField.innerText = bracket_2_maxValueField.value;
+});
+
+bracket_3_maxValueField.addEventListener("input", () => {
+  tarrifData[2]["max"] = bracket_2_maxValueField.value;
+  tarrifData[3]["min"] = bracket_2_maxValueField.value;
+  bracket_4_minValueField.innerText = bracket_3_maxValueField.value;
+});
+
+bracket_1_costField.addEventListener("input", () => {
+  tarrifData[0]["cost"] = bracket_1_costField.value;
+});
+
+bracket_2_costField.addEventListener("input", () => {
+  tarrifData[1]["cost"] = bracket_2_costField.value;
+});
+
+bracket_3_costField.addEventListener("input", () => {
+  tarrifData[2]["cost"] = bracket_3_costField.value;
+});
+
+bracket_4_costField.addEventListener("input", () => {
+  tarrifData[3]["cost"] = bracket_4_costField.value;
+});
+
 // MODAL CODE
 OpenModalBtn1.addEventListener("click", () => dialog1.showModal());
 CloseModalBtn1.addEventListener("click", () => dialog1.close());
@@ -106,14 +140,3 @@ dialog2.addEventListener("click", (e) => {
     dialog2.close();
   }
 });
-
-bracket_1_maxValueField = document.getElementById("b1-max");
-bracket_1_costField = document.getElementById("b1-cost");
-bracket_2_minValueField = document.getElementById("b2-min");
-bracket_3_minValueField = document.getElementById("b3-min");
-bracket_2_maxValueField = document.getElementById("b2-max");
-bracket_3_costField = document.getElementById("b3-cost");
-bracket_2_costField = document.getElementById("b2-cost");
-bracket_4_costField = document.getElementById("b4-cost");
-bracket_3_maxValueField = document.getElementById("b3-max");
-bracket_4_minValueField = document.getElementById("b4-min");
