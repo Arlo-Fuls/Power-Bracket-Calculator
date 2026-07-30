@@ -1,76 +1,72 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Power Bracket Calculator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/styles.css" />
-  <title>Power Bracket Calculator</title>
-</head>
+  <body>
+    <h1>Prepaid Power Calculator</h1>
+    <div class="container">
+      <section class="data" aria-labelledby="heading-data">
+        <h2 id="heading-data">Power Bracket Calculator</h2>
 
-<body>
-  <h1>Prepaid Power Calculator</h1>
-  <div class="container">
-    <section class="data" aria-labelledby="heading-data">
-      <h2 id="heading-data">Power Bracket Calculator</h2>
+        <div class="data-group">
+          <div class="subheading-container">
+            <h3>Bracket Data</h3>
+            <button>i</button>
+          </div>
 
-      <div class="data-group">
-        <div class="subheading-container">
-          <h3>Bracket Data</h3>
-          <button>i</button>
+          <table>
+            <thead>
+              <th>#</th>
+              <th>Unit Range</th>
+              <th>Price / unit</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0 - <input id="b1-max" type="number" value="100" /></td>
+                <td>R <input id="b1-cost" type="number" name="" value="2.97" /></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span id="b2-min">100</span> - <input id="b2-max" type="number" value="400" /></td>
+                <td>R <input id="b2-cost" type="number" name="" value="3.48" /></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span id="b3-min">400</span> - <input id="b3-max" type="number" value="650" /></td>
+                <td>R <input id="b3-cost" type="number" name="" value="3.79" /></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>> <span id="b4-min">650</span></td>
+                <td>R <input id="b4-cost" type="number" name="" value="4.09" /></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <table>
-          <thead>
-            <th>#</th>
-            <th>Unit Range</th>
-            <th>Price / unit</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>0 - <input type="number" value="100"></td>
-              <td>R <input type="number" name="" value="2.97"></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><span id="">100</span> - <input type="number" value="400"></td>
-              <td>R <input type="number" name="" value="3.48"></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><span id="">400</span> - <input type="number" value="650"></td>
-              <td>R <input type="number" name="" value="3.79"></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>> <span id="">400</span></td>
-              <td>R <input type="number" name="" value="4.09"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="data-group">
+          <div class="subheading-container">
+            <h3>Purchase info</h3>
+            <button>i</button>
+          </div>
 
-      <div class="data-group">
-        <div class="subheading-container">
-          <h3>Purchase info</h3>
-          <button>i</button>
+          <div class="amount-paid-container">
+            <label for="amount-paid">Amount paid in ZAR: </label>
+            <input type="number" id="amount-paid" />
+          </div>
         </div>
+      </section>
 
-        <div class="amount-paid-container">
-          <label for="amount-paid">Amount paid in ZAR: </label>
-          <input type="number" id="amount-paid">
-        </div>
-      </div>
-
-    </section>
-
-
-    <section class="result" aria-labelledby="heading-results">
-      <h2 id="heading-results">Results</h2>
-    </section>
-  </div>
-  <script src="./script.js"></script>
-</body>
-
+      <section class="result" aria-labelledby="heading-results">
+        <h2 id="heading-results">Results</h2>
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>

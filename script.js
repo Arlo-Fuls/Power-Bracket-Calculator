@@ -1,5 +1,16 @@
 const paymentInputField = document.getElementById("amount-paid");
 
+const bracket_1_maxValueField = document.getElementById("b1-max");
+const bracket_1_costField = document.getElementById("b1-cost");
+const bracket_2_minValueField = document.getElementById("b2-min");
+const bracket_2_maxValueField = document.getElementById("b2-max");
+const bracket_2_costField = document.getElementById("b2-cost");
+const bracket_3_minValueField = document.getElementById("b3-min");
+const bracket_3_maxValueField = document.getElementById("b3-max");
+const bracket_3_costField = document.getElementById("b3-cost");
+const bracket_4_minValueField = document.getElementById("b4-min");
+const bracket_4_costField = document.getElementById("b4-cost");
+
 const VAT_fraction = 0.13044;
 
 const tarrifData = [
