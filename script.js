@@ -33,9 +33,33 @@ function calculateUnitAmount(payment) {
   const startBracketIndex = tarrifData.findIndex(({ max }) => max >= unitTotal);
   let paymentRemaining = payment - VAT_deduction;
 
-  for (let i = startBracketIndex >= 0 ? startBracketIndex : 3; i <= 3; i++) {
-    const bracketUnits = tarrifData[i]["max"];
+  if (startBracketIndex >= 0) {
+    // loop through first 3 brackets
+    for (let i = startBracketIndex; i <= 2; i++) {
+      const bracketUnitsRemaining = tarrifData[i]["max"] - unitTotal;
+      const bracketCostRemaining = bracketUnitsRemaining * tarrifData[i]["price"];
+      console.log(i);
+
+      if (paymentRemaining <= bracketCostRemaining) {
+        // payment used up in this bracket
+        const unitAdded = paymentRemaining / tarrifData[i]["price"];
+        unitTotal += unitAdded;
+        paymentRemaining = 0;
+        break;
+      } else {
+        // more money left
+        unitTotal += bracketUnitsRemaining;
+        paymentRemaining -= bracketCostRemaining;
+      }
+    }
   }
+
+  if (unitTotal >= tarrifData[3]["max"]) {
+    const unitAdded = paymentRemaining / tarrifData[i]["price"];
+    unitTotal += unitAdded;
+  }
+
+  console.log("unitTotal: ", unitTotal);
 }
 
 // Only for testing
