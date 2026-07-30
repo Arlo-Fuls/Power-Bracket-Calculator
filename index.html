@@ -20,6 +20,7 @@
           <button id="modal-btn-1">i</button>
         </div>
 
+
         <table>
           <thead>
             <th>#</th>
@@ -29,26 +30,27 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td>0 - <input type="number" value="100"></td>
-              <td>R <input type="number" name="" value="2.97"></td>
+              <td>0 - <input id="b1-max" type="number" value="100" /></td>
+              <td>R <input id="b1-cost" type="number" name="" value="2.97" /></td>
             </tr>
             <tr>
               <td>2</td>
-              <td><span id="">100</span> - <input type="number" value="400"></td>
-              <td>R <input type="number" name="" value="3.48"></td>
+              <td><span id="b2-min">100</span> - <input id="b2-max" type="number" value="400" /></td>
+              <td>R <input id="b2-cost" type="number" name="" value="3.48" /></td>
             </tr>
             <tr>
               <td>3</td>
-              <td><span id="">400</span> - <input type="number" value="650"></td>
-              <td>R <input type="number" name="" value="3.79"></td>
+              <td><span id="b3-min">400</span> - <input id="b3-max" type="number" value="650" /></td>
+              <td>R <input id="b3-cost" type="number" name="" value="3.79" /></td>
             </tr>
             <tr>
               <td>4</td>
-              <td>> <span id="">400</span></td>
-              <td>R <input type="number" name="" value="4.09"></td>
+              <td>> <span id="b4-min">650</span></td>
+              <td>R <input id="b4-cost" type="number" name="" value="4.09" /></td>
             </tr>
           </tbody>
         </table>
+
       </div>
 
       <div class="data-group">
@@ -59,40 +61,41 @@
 
         <div class="amount-paid-container">
           <label for="amount-paid">Amount paid in ZAR: </label>
-          <input type="number" id="amount-paid">
+          <input type="number" id="amount-paid" />
         </div>
-
       </div>
 
-
-      <dialog id="information-modal-1" class="information-modal">
-        <button id="closeBtn-1">Close</button>
-        <div>
-          <h3>Filling in the bracket data</h3>
-          <p>The default data of the bracket is the power bracket data for Rustenburg.</p>
-          <p>If this data is not the same for your region, you can change the values as needed. You can find these
-            values online on your municipality's website.</p>
-        </div>
-      </dialog>
-
-      <dialog id="information-modal-2" class="information-modal">
-        <button id="closeBtn-2">Close</button>
-        <div>
-          <h3>Payment Amount</h3>
-          <p>It is important to note that the progress through the brackets resets on the first day of the month,
-            starting back at bracket one.</p>
-          <p>This means that subsequent payments through the month do not start at the first bracket again, but rather
-            up to where the total amount of units purchased for the month left you.</p>
-          <p>This calculator is currently only able to calculate from the first payment of the month.</p>
-        </div>
-      </dialog>
-
-    </section>
+  </div>
 
 
-    <section class="result" aria-labelledby="heading-results">
-      <h2 id="heading-results">Results</h2>
-    </section>
+  <dialog id="information-modal-1" class="information-modal">
+    <button id="closeBtn-1">Close</button>
+    <div>
+      <h3>Filling in the bracket data</h3>
+      <p>The default data of the bracket is the power bracket data for Rustenburg.</p>
+      <p>If this data is not the same for your region, you can change the values as needed. You can find these
+        values online on your municipality's website.</p>
+    </div>
+  </dialog>
+
+  <dialog id="information-modal-2" class="information-modal">
+    <button id="closeBtn-2">Close</button>
+    <div>
+      <h3>Payment Amount</h3>
+      <p>It is important to note that the progress through the brackets resets on the first day of the month,
+        starting back at bracket one.</p>
+      <p>This means that subsequent payments through the month do not start at the first bracket again, but rather
+        up to where the total amount of units purchased for the month left you.</p>
+      <p>This calculator is currently only able to calculate from the first payment of the month.</p>
+    </div>
+  </dialog>
+
+  </section>
+
+
+  <section class="result" aria-labelledby="heading-results">
+    <h2 id="heading-results">Results</h2>
+  </section>
   </div>
   <script src="./script.js"></script>
   <script>
