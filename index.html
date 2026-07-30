@@ -9,52 +9,60 @@
 </head>
 
 <body>
+  <h1>Prepaid Power Calculator</h1>
   <div class="container">
-    <h1 class="sr-only">Power Bracket Calculator</h1>
     <section class="data" aria-labelledby="heading-data">
-      <div class="subheading-container">
-        <h2 id="heading-data">Power Bracket Calculator</h2>
-        <button>i</button>
+      <h2 id="heading-data">Power Bracket Calculator</h2>
+
+      <div class="data-group">
+        <div class="subheading-container">
+          <h3>Bracket Data</h3>
+          <button>i</button>
+        </div>
+
+        <table>
+          <thead>
+            <td>#</td>
+            <td>Unit Range</td>
+            <td>Price / unit</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>0 - <input type="number" value="100"></td>
+              <td>R<input type="number" name="" value="2.97"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><span id="">100</span> - <input type="number" value="400"></td>
+              <td>R<input type="number" name="" value="3.48"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><span id="">400</span> - <input type="number" value="650"></td>
+              <td>R<input type="number" name="" value="3.79"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>> <span id="">400</span></td>
+              <td>R<input type="number" name="" value="4.09"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <table>
-        <thead>
-          <td>#</td>
-          <td>Unit Range</td>
-          <td>Price / unit</td>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>0 - <input type="number" value="100"></td>
-            <td>R<input type="number" name="" value="2.97"></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><span id="">100</span> - <input type="number" value="400"></td>
-            <td>R<input type="number" name="" value="3.48"></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><span id="">400</span> - <input type="number" value="650"></td>
-            <td>R<input type="number" name="" value="3.79"></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>> <span id="">400</span></td>
-            <td>R<input type="number" name="" value="4.09"></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="data-group">
+        <div class="subheading-container">
+          <h3>Purchase info</h3>
+          <button>i</button>
+        </div>
 
-
-      <div class="subheading-container">
-        <h3>Purchase info</h3>
-        <button>i</button>
+        <div>
+          <label for="amount-paid">Amount paid in ZAR: </label>
+          <input type="number" id="amount-paid">
+        </div>
       </div>
 
-      <label for="amount-paid">Amount paid in ZAR: </label>
-      <input type="number" id="amount-paid">
     </section>
 
 

@@ -1,3 +1,10 @@
+:root {
+  --bg: #021B1A;
+  --container: #06302B;
+  --data-container: #03624C;
+  --white: #F1F7F6;
+}
+
 *,
 *::after,
 *::before,
@@ -10,12 +17,16 @@ html {
 
 body {
   font-size: 100%;
-  background-color: rgb(2, 2, 34);
+  background-color: var(--bg);
   min-height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--white);
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .sr-only {
@@ -34,18 +45,25 @@ body {
   width: 90%;
   max-width: 75rem;
   min-height: 80vh;
-  background-color: #d6d6d6;
+  background-color: var(--container);
   border-radius: 0.25rem;
   border: none;
 
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
+
+
 }
 
 .subheading-container {
   display: flex;
   justify-content: space-between;
+
+  padding-bottom: 0.5rem;
+  width: 100%;
+  border-bottom: 0.0625rem solid var(--white);
+  margin-bottom: 1rem;
 
   button {
     width: 1.5rem;
@@ -62,14 +80,38 @@ body {
   }
 }
 
+.data-group {
+  width: 100%;
+
+}
+
 .data {
-  background-color: rgb(160, 247, 242);
+  background-color: var(--data-container);
   height: 100%;
   width: 100%;
-  padding: 1.5rem;
+  padding: 3rem;
   border-radius: 0 1rem 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 4rem;
 }
 
 .result {
   padding: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
