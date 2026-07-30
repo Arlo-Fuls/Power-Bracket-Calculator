@@ -10,6 +10,7 @@ const bracket_3_maxValueField = document.getElementById("b3-max");
 const bracket_3_costField = document.getElementById("b3-cost");
 const bracket_4_minValueField = document.getElementById("b4-min");
 const bracket_4_costField = document.getElementById("b4-cost");
+const submit_btn = document.getElementById("submit-btn");
 
 // MODAL VARIABLES
 const OpenModalBtn1 = document.getElementById("modal-btn-1");
@@ -44,10 +45,11 @@ const tarrifData = [
   },
 ];
 
-const paymentData = [];
-let unitTotal = 0;
+// const paymentData = [];
+// let unitTotal = 0;
 
 function calculateUnitAmount(payment) {
+  let unitTotal = 0;
   const VAT_deduction = payment * VAT_fraction;
   const startBracketIndex = tarrifData.findIndex(({ max }) => max >= unitTotal);
   let paymentRemaining = payment - VAT_deduction;
@@ -57,7 +59,6 @@ function calculateUnitAmount(payment) {
     for (let i = startBracketIndex; i <= 2; i++) {
       const bracketUnitsRemaining = tarrifData[i]["max"] - unitTotal;
       const bracketCostRemaining = bracketUnitsRemaining * tarrifData[i]["price"];
-      console.log(i);
 
       if (paymentRemaining <= bracketCostRemaining) {
         // payment used up in this bracket
@@ -78,11 +79,11 @@ function calculateUnitAmount(payment) {
     unitTotal += unitAdded;
   }
 
-  console.log("unitTotal: ", unitTotal);
+  console.log("Cost: ", payment);
+  console.log("Units: ", unitTotal);
 }
 
-// Only for testing
-paymentInputField.addEventListener("change", () => {
+submit_btn.addEventListener("click", () => {
   calculateUnitAmount(paymentInputField.value);
 });
 
@@ -105,19 +106,19 @@ bracket_3_maxValueField.addEventListener("input", () => {
 });
 
 bracket_1_costField.addEventListener("input", () => {
-  tarrifData[0]["cost"] = bracket_1_costField.value;
+  tarrifData[0]["price"] = bracket_1_costField.value;
 });
 
 bracket_2_costField.addEventListener("input", () => {
-  tarrifData[1]["cost"] = bracket_2_costField.value;
+  tarrifData[1]["price"] = bracket_2_costField.value;
 });
 
 bracket_3_costField.addEventListener("input", () => {
-  tarrifData[2]["cost"] = bracket_3_costField.value;
+  tarrifData[2]["price"] = bracket_3_costField.value;
 });
 
 bracket_4_costField.addEventListener("input", () => {
-  tarrifData[3]["cost"] = bracket_4_costField.value;
+  tarrifData[3]["price"] = bracket_4_costField.value;
 });
 
 // MODAL CODE
