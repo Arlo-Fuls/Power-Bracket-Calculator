@@ -89,6 +89,37 @@ body {
   align-items: center;
   gap: 4rem;
 }
+.data table,
+.data th,
+.data td {
+  border: 1px solid;
+  padding: 0.5rem;
+}
+.data td {
+  text-align: center;
+}
+.data input {
+  width: 50%;
+  background-color: var(--container);
+  padding: 0.125rem;
+  color: inherit;
+  font-size: inherit;
+  border-radius: 0.25rem;
+  border: none;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.data input::-webkit-outer-spin-button,
+.data input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.data .amount-paid-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .result {
   padding: 1.5rem;
