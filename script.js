@@ -1,4 +1,5 @@
 const paymentInputField = document.getElementById("amount-paid");
+const resultContainer = document.getElementById("result-container");
 
 const bracket_1_maxValueField = document.getElementById("b1-max");
 const bracket_1_costField = document.getElementById("b1-cost");
