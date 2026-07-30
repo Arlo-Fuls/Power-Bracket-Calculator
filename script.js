@@ -71,8 +71,8 @@ function calculateUnitAmount(payment) {
 
         resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
         if (bracketUnitsRemaining - unitAdded.toFixed(2) >= 1) {
-          resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${bracketUnitsRemaining - unitAdded.toFixed(2)}</span></p>
-                  <p>Additional payment required to use up remainder of this bracket: <span>R${(bracketCostRemaining - paymentRemaining).toFixed(2)}</span></p>`;
+          resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${(bracketUnitsRemaining - unitAdded).toFixed(2)}</span></p>
+                  <p>Additional payment required to use up remainder of this bracket: <span>R${((bracketCostRemaining - paymentRemaining) / (1 - VAT_fraction)).toFixed(2)}</span></p>`;
           paymentRemaining = 0;
         }
         break;
@@ -85,8 +85,9 @@ function calculateUnitAmount(payment) {
     }
   }
 
-  if (unitTotal >= tarrifData[3]["max"]) {
-    const unitAdded = paymentRemaining / tarrifData[i]["price"];
+  if (unitTotal >= tarrifData[3]["min"]) {
+    const unitAdded = paymentRemaining / tarrifData[3]["price"];
+
     unitTotal += unitAdded;
     resultHTML_center += `<p>Bracket 4 units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
   }
