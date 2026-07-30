@@ -127,6 +127,28 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.data .submit-btn {
+  width: 30%;
+  height: 2.5rem;
+  background-color: var(--container);
+  border-radius: 0.5rem;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.0625rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 var(--white);
+  transition: transform 0.2s ease-out;
+}
+.data .submit-btn:hover {
+  box-shadow: 0 0 0 0.125rem var(--white);
+  transform: translateY(-0.125rem);
+}
+.data .submit-btn:active {
+  box-shadow: 0 0 0 0.125rem var(--white), 0 0 0.5rem 0.25rem var(--container);
+}
 
 .information-modal {
   position: absolute;
@@ -141,15 +163,23 @@ body {
 }
 .information-modal::backdrop {
   background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
 .information-modal button {
   background-color: var(--data-container);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: none;
+  border: 0.0625rem solid var(--data-container);
   color: var(--white);
   font-weight: 600;
   height: 10%;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  transform: scale(100%);
+}
+.information-modal button:hover {
+  box-shadow: 0 0 0 0.125rem var(--container);
+  transform: scale(110%);
 }
 .information-modal div {
   width: 95%;
