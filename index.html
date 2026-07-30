@@ -13,11 +13,11 @@
       <section class="data" aria-labelledby="heading-data">
         <h2 id="heading-data">Power Bracket Calculator</h2>
 
-        <div class="data-group">
-          <div class="subheading-container">
-            <h3>Bracket Data</h3>
-            <button>i</button>
-          </div>
+      <div class="data-group">
+        <div class="subheading-container">
+          <h3>Bracket Data</h3>
+          <button id="modal-btn-1">i</button>
+        </div>
 
           <table>
             <thead>
@@ -61,12 +61,36 @@
             <input type="number" id="amount-paid" />
           </div>
         </div>
-      </section>
 
-      <section class="result" aria-labelledby="heading-results">
-        <h2 id="heading-results">Results</h2>
-      </section>
-    </div>
-    <script src="./script.js"></script>
-  </body>
+      </div>
+
+
+      <dialog id="information-modal-1" class="information-modal">
+        <button id="closeBtn-1">Close</button>
+        <div>
+          <h3>Filling in the bracket data</h3>
+          <p>The default data of the bracket is the power bracket data for Rustenburg.</p>
+          <p>If this data is not the same for your region, you can change the values as needed. You can find these
+            values online on your municipality's website.</p>
+        </div>
+      </dialog>
+
+    </section>
+
+
+    <section class="result" aria-labelledby="heading-results">
+      <h2 id="heading-results">Results</h2>
+    </section>
+  </div>
+  <script src="./script.js"></script>
+  <script>
+    const OpenModalBtn1 = document.getElementById("modal-btn-1");
+    const CloseModalBtn1 = document.getElementById("closeBtn-1");
+    const dialog1 = document.getElementById("information-modal-1");
+
+    OpenModalBtn1.addEventListener('click', () => dialog1.showModal());
+    CloseModalBtn1.addEventListener('click', () => dialog1.close());
+  </script>
+</body>
+
 </html>

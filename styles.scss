@@ -70,19 +70,28 @@ body {
     height: 1.5rem;
     border-radius: 50%;
     border: none;
-    background-color: white;
+    background-color: var(--white);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     cursor: pointer;
+
+    font-weight: 600;
+    color: var(--container);
+
+    transform: scale(100%);
+    transition: all 0.15s ease-in;
+
+    &:hover {
+      transform: scale(120%);
+    }
   }
 }
 
 .data-group {
   width: 100%;
-
 }
 
 .data {
@@ -133,6 +142,56 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+
+}
+
+.information-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  // height: 50%;
+  max-width: unset;
+
+  border: none;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  button {
+    background-color: var(--data-container);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--white);
+    font-weight: 600;
+    height: 10%;
+  }
+
+  div {
+    width: 90%;
+    height: 90%;
+
+    margin: 0 auto;
+
+
+    h3 {
+      padding-block-end: 1.5rem;
+      text-decoration: underline;
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.2;
+      text-align: justify;
+      padding-block-end: 1.2rem;
+    }
   }
 
 }
