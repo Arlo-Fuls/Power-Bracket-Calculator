@@ -333,6 +333,12 @@ body {
           position: relative;
           margin-left: 2rem;
           font-weight: 400;
+
+          display: grid;
+          grid-template-columns: 6fr 4fr;
+          gap: 1.5rem;
+
+          text-align: left;
         }
 
         p::before {
@@ -348,6 +354,7 @@ body {
           // font-size: 1.2em;
           font-weight: 800;
           color: var(--white);
+          text-align: right;
         }
       }
 

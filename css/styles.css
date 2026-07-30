@@ -280,6 +280,10 @@ body {
   position: relative;
   margin-left: 2rem;
   font-weight: 400;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 1.5rem;
+  text-align: left;
 }
 .result .display__result .result__center p::before {
   content: "⚡";
@@ -290,6 +294,7 @@ body {
 .result .display__result .result__center span {
   font-weight: 800;
   color: var(--white);
+  text-align: right;
 }
 .result .show {
   transform: rotateY(180deg);
