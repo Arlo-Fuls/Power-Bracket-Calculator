@@ -54,7 +54,7 @@
       <div class="data-group">
         <div class="subheading-container">
           <h3>Purchase info</h3>
-          <button>i</button>
+          <button id="modal-btn-2">i</button>
         </div>
 
         <div class="amount-paid-container">
@@ -75,6 +75,18 @@
         </div>
       </dialog>
 
+      <dialog id="information-modal-2" class="information-modal">
+        <button id="closeBtn-2">Close</button>
+        <div>
+          <h3>Payment Amount</h3>
+          <p>It is important to note that the progress through the brackets resets on the first day of the month,
+            starting back at bracket one.</p>
+          <p>This means that subsequent payments through the month do not start at the first bracket again, but rather
+            up to where the total amount of units purchased for the month left you.</p>
+          <p>This calculator is currently only able to calculate from the first payment of the month.</p>
+        </div>
+      </dialog>
+
     </section>
 
 
@@ -87,9 +99,15 @@
     const OpenModalBtn1 = document.getElementById("modal-btn-1");
     const CloseModalBtn1 = document.getElementById("closeBtn-1");
     const dialog1 = document.getElementById("information-modal-1");
+    const OpenModalBtn2 = document.getElementById("modal-btn-2");
+    const CloseModalBtn2 = document.getElementById("closeBtn-2");
+    const dialog2 = document.getElementById("information-modal-2");
 
     OpenModalBtn1.addEventListener('click', () => dialog1.showModal());
     CloseModalBtn1.addEventListener('click', () => dialog1.close());
+
+    OpenModalBtn2.addEventListener('click', () => dialog2.showModal());
+    CloseModalBtn2.addEventListener('click', () => dialog2.close());
   </script>
 </body>
 
