@@ -16,23 +16,23 @@ const VAT_fraction = 0.13044;
 const tarrifData = [
   {
     min: 0,
-    max: 100,
-    price: 3.2411,
+    max: bracket_1_maxValueField,
+    price: bracket_1_costField,
   },
   {
-    min: 100,
-    max: 400,
-    price: 3.7932,
+    min: bracket_2_minValueField,
+    max: bracket_2_maxValueField,
+    price: bracket_2_costField,
   },
   {
-    min: 400,
-    max: 650,
-    price: 4.1327,
+    min: bracket_3_minValueField,
+    max: bracket_3_maxValueField,
+    price: bracket_3_costField,
   },
   {
-    min: 650,
+    min: bracket_4_minValueField,
     max: undefined,
-    price: 4.4551,
+    price: bracket_4_costField,
   },
 ];
 
@@ -77,3 +77,14 @@ function calculateUnitAmount(payment) {
 paymentInputField.addEventListener("change", () => {
   calculateUnitAmount(paymentInputField.value);
 });
+
+bracket_1_maxValueField = document.getElementById("b1-max");
+bracket_1_costField = document.getElementById("b1-cost");
+bracket_2_minValueField = document.getElementById("b2-min");
+bracket_3_minValueField = document.getElementById("b3-min");
+bracket_2_maxValueField = document.getElementById("b2-max");
+bracket_3_costField = document.getElementById("b3-cost");
+bracket_2_costField = document.getElementById("b2-cost");
+bracket_4_costField = document.getElementById("b4-cost");
+bracket_3_maxValueField = document.getElementById("b3-max");
+bracket_4_minValueField = document.getElementById("b4-min");
