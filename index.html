@@ -1,143 +1,131 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Power Bracket Calculator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/styles.css" />
-  <title>Power Bracket Calculator</title>
-</head>
+  <body>
+    <h1>Prepaid Power Calculator</h1>
+    <div class="container">
+      <section class="data" aria-labelledby="heading-data">
+        <h2 id="heading-data">Power Bracket Calculator</h2>
 
-<body>
-  <h1>Prepaid Power Calculator</h1>
-  <div class="container">
-    <section class="data" aria-labelledby="heading-data">
-      <h2 id="heading-data">Power Bracket Calculator</h2>
-
-      <div class="data-group">
-        <div class="subheading-container">
-          <h3>Bracket Data</h3>
-          <button id="modal-btn-1">i</button>
-        </div>
-
-        <table>
-          <thead>
-            <th>#</th>
-            <th>Unit Range</th>
-            <th>Price / unit</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>0 - <input id="b1-max" type="number" value="100" /></td>
-              <td>R <input id="b1-cost" type="number" name="" value="2.97" /></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><span id="b2-min">100</span> - <input id="b2-max" type="number" value="400" /></td>
-              <td>R <input id="b2-cost" type="number" name="" value="3.48" /></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><span id="b3-min">400</span> - <input id="b3-max" type="number" value="650" /></td>
-              <td>R <input id="b3-cost" type="number" name="" value="3.79" /></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>> <span id="b4-min">650</span></td>
-              <td>R <input id="b4-cost" type="number" name="" value="4.09" /></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-
-      <div class="data-group">
-        <div class="subheading-container">
-          <h3>Purchase info</h3>
-          <button id="modal-btn-2">i</button>
-        </div>
-
-
-        <div class="amount-paid-container">
-          <label for="amount-paid">Amount paid in ZAR: </label>
-          <input type="number" id="amount-paid" />
-        </div>
-      </div>
-
-      <button id="submit-btn" class="submit-btn">Submit</button>
-
-      <dialog id="information-modal-1" class="information-modal">
-        <button id="closeBtn-1">Close</button>
-        <div>
-          <h3>Filling in the bracket data</h3>
-          <p>The default data of the bracket is the power bracket data for Rustenburg.</p>
-          <p>If this data is not the same for your region, you can change the values as needed. You can find these
-            values online on your municipality's website.</p>
-        </div>
-      </dialog>
-
-      <dialog id="information-modal-2" class="information-modal">
-        <button id="closeBtn-2">Close</button>
-        <div>
-          <h3>Payment Amount</h3>
-          <p>It is important to note that the progress through the brackets resets on the first day of the month,
-            starting back at bracket one.</p>
-          <p>This means that subsequent payments through the month do not start at the first bracket again, but rather
-            up to where the total amount of units purchased for the month left you.</p>
-          <p>This calculator is currently only able to calculate from the first payment of the month.</p>
-          <p>If previous payments have been made this month, input the total amount of those payments with the new
-            amount to get the total amount of units.</p>
-        </div>
-      </dialog>
-    </section>
-
-    <section class="result" aria-labelledby="heading-results">
-      <h2 class="sr-only" id="heading-results">Results</h2>
-
-      <div class="flip-wrapper">
-        <div class="display">
-          <div class="display__empty">
-            <span>
-              <h3>Enter values to calculate</h3>
-              <p>The default values in the table represent the power brackets for Rustenburg.</p>
-              <p>You can change these values if needed to your municipality's values.</p>
-              <p>Enter the amount you want to pay and hit the button to calculate how many units can be purchased for
-                this amount.</p>
-
-            </span>
+        <div class="data-group">
+          <div class="subheading-container">
+            <h3>Bracket Data</h3>
+            <button id="modal-btn-1">i</button>
           </div>
 
-          <div id="result-container" class="display__result">
-            <span class="result__top">
-              <h3>Calculated Amount</h3>
-              <p>Total amount paid: <span>R1000</span></p>
-              <p>Total Units purchased: <span>150</span></p>
-            </span>
+          <table>
+            <thead>
+              <th>#</th>
+              <th>Unit Range</th>
+              <th>Price / unit</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0 - <input id="b1-max" type="number" value="100" /></td>
+                <td>R <input id="b1-cost" type="number" name="" value="2.97" /></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span id="b2-min">100</span> - <input id="b2-max" type="number" value="400" /></td>
+                <td>R <input id="b2-cost" type="number" name="" value="3.48" /></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span id="b3-min">400</span> - <input id="b3-max" type="number" value="650" /></td>
+                <td>R <input id="b3-cost" type="number" name="" value="3.79" /></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>> <span id="b4-min">650</span></td>
+                <td>R <input id="b4-cost" type="number" name="" value="4.09" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-            <span class="result__center">
+        <div class="data-group">
+          <div class="subheading-container">
+            <h3>Purchase info</h3>
+            <button id="modal-btn-2">i</button>
+          </div>
 
-              <h3>Calculation Details</h3>
-
-              <span class="result__middle">
-                <p>VAT amount calculated: <span>R200</span></p>
-                <p>Bracket 1 units purchased: <span>100</span></p>
-                <p>Bracket 2 units purchased: <span>400</span></p>
-                <p>Bracket 3 units purchased: <span>350</span></p>
-              </span>
-
-              <span class="result__end">
-                <p>Amount of units remaining in Bracket 3: <span>300</span> </p>
-                <p>Additional amount required to use up remainder of bracket: <span>R200</span></p>
-              </span>
-            </span>
-            </span>
+          <div class="amount-paid-container">
+            <label for="amount-paid">Amount paid in ZAR: </label>
+            <input type="number" id="amount-paid" />
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <script src="./script.js"></script>
-</body>
 
+        <button id="submit-btn" class="submit-btn">Submit</button>
+
+        <dialog id="information-modal-1" class="information-modal">
+          <button id="closeBtn-1">Close</button>
+          <div>
+            <h3>Filling in the bracket data</h3>
+            <p>The default data of the bracket is the power bracket data for Rustenburg.</p>
+            <p>If this data is not the same for your region, you can change the values as needed. You can find these values online on your municipality's website.</p>
+          </div>
+        </dialog>
+
+        <dialog id="information-modal-2" class="information-modal">
+          <button id="closeBtn-2">Close</button>
+          <div>
+            <h3>Payment Amount</h3>
+            <p>It is important to note that the progress through the brackets resets on the first day of the month, starting back at bracket one.</p>
+            <p>This means that subsequent payments through the month do not start at the first bracket again, but rather up to where the total amount of units purchased for the month left you.</p>
+            <p>This calculator is currently only able to calculate from the first payment of the month.</p>
+            <p>If previous payments have been made this month, input the total amount of those payments with the new amount to get the total amount of units.</p>
+          </div>
+        </dialog>
+      </section>
+
+      <section class="result" aria-labelledby="heading-results">
+        <h2 class="sr-only" id="heading-results">Results</h2>
+
+        <div class="flip-wrapper">
+          <div id="result-display-toggle" class="display">
+            <div class="display__empty">
+              <span>
+                <h3>Enter values to calculate</h3>
+                <p>The default values in the table represent the power brackets for Rustenburg.</p>
+                <p>You can change these values if needed to your municipality's values.</p>
+                <p>Enter the amount you want to pay and hit the button to calculate how many units can be purchased for this amount.</p>
+              </span>
+            </div>
+
+            <div id="result-container" class="display__result">
+              <span class="result__top">
+                <h3>Calculated Amount</h3>
+                <p>Total amount paid: <span>R1000</span></p>
+                <p>Total Units purchased: <span>150</span></p>
+              </span>
+
+              <span class="result__center">
+                <h3>Calculation Details</h3>
+
+                <span class="result__middle">
+                  <p>VAT amount calculated: <span>R200</span></p>
+                  <p>Bracket 1 units purchased: <span>100</span></p>
+                  <p>Bracket 2 units purchased: <span>400</span></p>
+                  <p>Bracket 3 units purchased: <span>350</span></p>
+                </span>
+
+                <span class="result__end">
+                  <p>Amount of units remaining in Bracket 3: <span>300</span></p>
+                  <p>Additional amount required to use up remainder of bracket: <span>R200</span></p>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>

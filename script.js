@@ -1,5 +1,6 @@
 const paymentInputField = document.getElementById("amount-paid");
 const resultContainer = document.getElementById("result-container");
+const resultToggle = document.getElementById("result-display-toggle");
 
 const bracket_1_maxValueField = document.getElementById("b1-max");
 const bracket_1_costField = document.getElementById("b1-cost");
@@ -61,7 +62,7 @@ function calculateUnitAmount(payment) {
   if (startBracketIndex >= 0) {
     // loop through first 3 brackets
     for (let i = startBracketIndex; i <= 2; i++) {
-      const bracketUnitsRemaining = tarrifData[i]["max"] - unitTotal;
+      const bracketUnitsRemaining = tarrifData[i]["max"] - tarrifData[i]["min"];
       const bracketCostRemaining = bracketUnitsRemaining * tarrifData[i]["price"];
 
       if (paymentRemaining <= bracketCostRemaining) {
@@ -71,7 +72,7 @@ function calculateUnitAmount(payment) {
 
         resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
         if (bracketUnitsRemaining - unitAdded.toFixed(2) >= 1) {
-          resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${(bracketUnitsRemaining - unitAdded).toFixed(2)}</span></p>
+          resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${(bracketUnitsRemaining - unitAdded).toFixed(2)}kWh</span></p>
                   <p>Additional payment required to use up remainder of this bracket: <span>R${((bracketCostRemaining - paymentRemaining) / (1 - VAT_fraction)).toFixed(2)}</span></p>`;
           paymentRemaining = 0;
         }
@@ -80,7 +81,7 @@ function calculateUnitAmount(payment) {
         // more money left
         unitTotal += bracketUnitsRemaining;
         paymentRemaining -= bracketCostRemaining;
-        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${bracketUnitsRemaining}</span></p>`;
+        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${bracketUnitsRemaining}kWh</span></p>`;
       }
     }
   }
@@ -89,14 +90,14 @@ function calculateUnitAmount(payment) {
     const unitAdded = paymentRemaining / tarrifData[3]["price"];
 
     unitTotal += unitAdded;
-    resultHTML_center += `<p>Bracket 4 units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
+    resultHTML_center += `<p>Bracket 4 units purchased: <span>${unitAdded.toFixed(2)}kWh</span></p>`;
   }
 
   resultContainer.innerHTML = `
               <span class="result__top">
                 <h3>Calculated Amount</h3>
                 <p>Total amount paid: <span>R${payment.toFixed(2)}</span></p>
-                <p>Total Units purchased: <span>${unitTotal.toFixed(2)}</span></p>
+                <p>Total Units purchased: <span>${unitTotal.toFixed(2)}kWh</span></p>
               </span>
 
               <span class="result__center">
@@ -113,42 +114,62 @@ function calculateUnitAmount(payment) {
               </span>`;
 }
 
-submit_btn.addEventListener("click", () => {
+function reset() {
+  resultToggle.classList.remove("show");
+  bracket_2_minValueField.innerText = bracket_1_maxValueField.value;
+  bracket_3_minValueField.innerText = bracket_2_maxValueField.value;
+  bracket_4_minValueField.innerText = bracket_3_maxValueField.value;
+}
+
+submit_btn.addEventListener("click", (e) => {
+  e.preventDefault();
   calculateUnitAmount(Number(paymentInputField.value));
+  resultToggle.classList.add("show");
 });
 
 bracket_1_maxValueField.addEventListener("input", () => {
   tarrifData[0]["max"] = bracket_1_maxValueField.value;
   tarrifData[1]["min"] = bracket_1_maxValueField.value;
   bracket_2_minValueField.innerText = bracket_1_maxValueField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_2_maxValueField.addEventListener("input", () => {
   tarrifData[1]["max"] = bracket_2_maxValueField.value;
   tarrifData[2]["min"] = bracket_2_maxValueField.value;
   bracket_3_minValueField.innerText = bracket_2_maxValueField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_3_maxValueField.addEventListener("input", () => {
-  tarrifData[2]["max"] = bracket_2_maxValueField.value;
-  tarrifData[3]["min"] = bracket_2_maxValueField.value;
+  tarrifData[2]["max"] = bracket_3_maxValueField.value;
+  tarrifData[3]["min"] = bracket_3_maxValueField.value;
   bracket_4_minValueField.innerText = bracket_3_maxValueField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_1_costField.addEventListener("input", () => {
   tarrifData[0]["price"] = bracket_1_costField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_2_costField.addEventListener("input", () => {
   tarrifData[1]["price"] = bracket_2_costField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_3_costField.addEventListener("input", () => {
   tarrifData[2]["price"] = bracket_3_costField.value;
+  resultToggle.classList.remove("show");
 });
 
 bracket_4_costField.addEventListener("input", () => {
   tarrifData[3]["price"] = bracket_4_costField.value;
+  resultToggle.classList.remove("show");
+});
+
+paymentInputField.addEventListener("input", () => {
+  resultToggle.classList.remove("show");
 });
 
 // MODAL CODE
@@ -171,3 +192,5 @@ dialog2.addEventListener("click", (e) => {
     dialog2.close();
   }
 });
+
+reset();

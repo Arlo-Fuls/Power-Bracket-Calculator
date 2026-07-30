@@ -1,15 +1,15 @@
 :root {
-  --bg: #021B1A;
-  --container: #06302B;
-  --data-container: #03624C;
-  --result-container: #021B1A;
-  --white: #F1F7F6;
+  --bg: #021b1a;
+  --container: #06302b;
+  --data-container: #03624c;
+  --result-container: #021b1a;
+  --white: #f1f7f6;
   --grey: #c5c9c8;
   --accent: #e61646;
 }
 
-$small : 50rem;
-$med : 75rem;
+$small: 50rem;
+$med: 75rem;
 
 *,
 *::after,
@@ -35,7 +35,6 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   padding: 2rem 0;
-
 }
 
 .sr-only {
@@ -72,8 +71,6 @@ body {
 
     background-color: var(--bg);
   }
-
-
 }
 
 .subheading-container {
@@ -134,7 +131,6 @@ body {
   @media screen and (max-width: $med) {
     padding: 2rem 1rem;
     gap: 3rem;
-
   }
 
   @media screen and (max-width: $small) {
@@ -142,8 +138,6 @@ body {
   }
 
   table {
-
-
     @media screen and (max-width: $small) {
       margin: 0 auto;
     }
@@ -217,10 +211,10 @@ body {
     }
 
     &:active {
-      box-shadow: 0 0 0 0.125rem var(--white), 0 0 0.5rem 0.25rem var(--container);
+      box-shadow:
+        0 0 0 0.125rem var(--white),
+        0 0 0.5rem 0.25rem var(--container);
     }
-
-
   }
 }
 
@@ -267,8 +261,6 @@ body {
     transition: transform 0.15s ease-in-out;
     transform: scale(100%);
 
-
-
     &:hover {
       box-shadow: 0 0 0 0.125rem var(--container);
       transform: scale(110%);
@@ -282,7 +274,6 @@ body {
 
     margin: 0 auto;
 
-
     h3 {
       padding-block-end: 1.5rem;
       text-decoration: underline;
@@ -295,7 +286,6 @@ body {
       padding-block-end: 1.2rem;
     }
   }
-
 }
 
 .result {
@@ -321,7 +311,6 @@ body {
     width: 100%;
     height: 100%;
     perspective: 500px;
-
   }
 
   .display {
@@ -350,8 +339,6 @@ body {
       gap: 2rem;
 
       align-items: center;
-
-
     }
 
     &__result {
@@ -386,7 +373,6 @@ body {
         @media screen and (max-width: $small) {
           font-size: 2.25rem;
         }
-
       }
 
       .result__top,
@@ -462,12 +448,11 @@ body {
         }
 
         p::before {
-          content: '⚡';
+          content: "⚡";
           position: absolute;
 
           left: -0.5rem;
           transform: translateX(-100%);
-
         }
 
         span {
@@ -477,8 +462,6 @@ body {
           text-align: right;
         }
       }
-
-
     }
 
     &__empty {
@@ -488,7 +471,6 @@ body {
       align-items: center;
 
       h3 {
-
         font-size: 2.5rem;
         padding-bottom: 2rem;
         text-align: center;
@@ -502,7 +484,6 @@ body {
         @media screen and (max-width: $small) {
           font-size: 2.25rem;
         }
-
       }
 
       span {
@@ -516,24 +497,19 @@ body {
       }
 
       p::before {
-        content: '⚡';
+        content: "⚡";
         position: absolute;
 
         left: -0.5rem;
         transform: translateX(-100%);
-
       }
     }
-
   }
 
   .show {
     transform: rotateY(180deg);
   }
-
-
 }
-
 
 h1 {
   font-size: 3rem;
