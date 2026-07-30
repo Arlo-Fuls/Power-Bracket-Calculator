@@ -1,3 +1,5 @@
+const paymentInputField = document.getElementById("amount-paid");
+
 const VAT_fraction = 0.13044;
 
 const tarrifData = [
@@ -28,5 +30,15 @@ let unitTotal = 0;
 
 function calculateUnitAmount(payment) {
   const VAT_deduction = payment * VAT_fraction;
-  const startBracket = tarrifData.find(({ max }) => max <= unitTotal);
+  const startBracketIndex = tarrifData.findIndex(({ max }) => max >= unitTotal);
+  let paymentRemaining = payment - VAT_deduction;
+
+  for (let i = startBracketIndex >= 0 ? startBracketIndex : 3; i <= 3; i++) {
+    const bracketUnits = tarrifData[i]["max"];
+  }
 }
+
+// Only for testing
+paymentInputField.addEventListener("change", () => {
+  calculateUnitAmount(paymentInputField.value);
+});
