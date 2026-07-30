@@ -55,6 +55,9 @@ function calculateUnitAmount(payment) {
   const startBracketIndex = tarrifData.findIndex(({ max }) => max >= unitTotal);
   let paymentRemaining = payment - VAT_deduction;
 
+  let resultHTML_center = ``;
+  let resultHTML_bottom = ``;
+
   if (startBracketIndex >= 0) {
     // loop through first 3 brackets
     for (let i = startBracketIndex; i <= 2; i++) {
@@ -65,27 +68,53 @@ function calculateUnitAmount(payment) {
         // payment used up in this bracket
         const unitAdded = paymentRemaining / tarrifData[i]["price"];
         unitTotal += unitAdded;
-        paymentRemaining = 0;
+
+        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
+        if (bracketUnitsRemaining - unitAdded.toFixed(2) >= 1) {
+          resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${(bracketUnitsRemaining - unitAdded).toFixed(2)}</span></p>
+                  <p>Additional payment required to use up remainder of this bracket: <span>R${((bracketCostRemaining - paymentRemaining) / (1 - VAT_fraction)).toFixed(2)}</span></p>`;
+          paymentRemaining = 0;
+        }
         break;
       } else {
         // more money left
         unitTotal += bracketUnitsRemaining;
         paymentRemaining -= bracketCostRemaining;
+        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${bracketUnitsRemaining}</span></p>`;
       }
     }
   }
 
-  if (unitTotal >= tarrifData[3]["max"]) {
-    const unitAdded = paymentRemaining / tarrifData[i]["price"];
+  if (unitTotal >= tarrifData[3]["min"]) {
+    const unitAdded = paymentRemaining / tarrifData[3]["price"];
+
     unitTotal += unitAdded;
+    resultHTML_center += `<p>Bracket 4 units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
   }
 
-  console.log("Cost: ", payment);
-  console.log("Units: ", unitTotal);
+  resultContainer.innerHTML = `
+              <span class="result__top">
+                <h3>Calculated Amount</h3>
+                <p>Total amount paid: <span>R${payment.toFixed(2)}</span></p>
+                <p>Total Units purchased: <span>${unitTotal.toFixed(2)}</span></p>
+              </span>
+
+              <span class="result__center">
+                <h3>Calculation Details</h3>
+
+                <span class="result__middle">
+                  <p>VAT amount calculated (@13.044%): <span> R${VAT_deduction.toFixed(2)}</span></p>
+                  ${resultHTML_center}
+                </span>
+
+                <span class="result__end">
+                  ${resultHTML_bottom}
+                </span>
+              </span>`;
 }
 
 submit_btn.addEventListener("click", () => {
-  calculateUnitAmount(paymentInputField.value);
+  calculateUnitAmount(Number(paymentInputField.value));
 });
 
 bracket_1_maxValueField.addEventListener("input", () => {
