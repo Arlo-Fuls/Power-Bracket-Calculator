@@ -37,7 +37,6 @@ body {
   background-color: #d6d6d6;
   border-radius: 0.25rem;
   border: none;
-
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
@@ -46,20 +45,17 @@ body {
 .subheading-container {
   display: flex;
   justify-content: space-between;
-
-  button {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    border: none;
-    background-color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-  }
+}
+.subheading-container button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .data {
@@ -72,4 +68,4 @@ body {
 
 .result {
   padding: 1.5rem;
-}
+}/*# sourceMappingURL=styles.css.map */
