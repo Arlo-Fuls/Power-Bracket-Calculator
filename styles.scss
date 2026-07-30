@@ -8,6 +8,9 @@
   --accent: #e61646;
 }
 
+$small : 50rem;
+$med : 75rem;
+
 *,
 *::after,
 *::before,
@@ -29,7 +32,10 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   color: var(--white);
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  padding: 2rem 0;
+
 }
 
 .sr-only {
@@ -55,6 +61,17 @@ body {
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
+
+  @media screen and (max-width: $med) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $small) {
+    grid-template-columns: 100%;
+    grid-template-rows: 4fr 5fr;
+
+    background-color: var(--bg);
+  }
 
 
 }
@@ -95,6 +112,10 @@ body {
 
 .data-group {
   width: 100%;
+
+  @media screen and (max-width: $small) {
+    width: 90%;
+  }
 }
 
 .data {
@@ -109,6 +130,24 @@ body {
   justify-content: start;
   align-items: center;
   gap: 4rem;
+
+  @media screen and (max-width: $med) {
+    padding: 2rem 1rem;
+    gap: 3rem;
+
+  }
+
+  @media screen and (max-width: $small) {
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  table {
+
+
+    @media screen and (max-width: $small) {
+      margin: 0 auto;
+    }
+  }
 
   table,
   th,
@@ -145,9 +184,11 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     input {
       width: 40%;
+      height: 2rem;
     }
   }
 
@@ -196,6 +237,18 @@ body {
   border-radius: 1rem;
   padding: 2rem;
 
+  @media screen and (max-width: $med) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: $small) {
+    width: 80%;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
   &::backdrop {
     background: rgba(0, 0, 0, 0.6);
     cursor: pointer;
@@ -214,6 +267,8 @@ body {
     transition: transform 0.15s ease-in-out;
     transform: scale(100%);
 
+
+
     &:hover {
       box-shadow: 0 0 0 0.125rem var(--container);
       transform: scale(110%);
@@ -222,7 +277,8 @@ body {
 
   div {
     width: 95%;
-    height: 90%;
+    height: 85%;
+    padding-top: 5%;
 
     margin: 0 auto;
 
@@ -252,6 +308,14 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media screen and (max-width: $med) {
+    gap: 0;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 0;
+  }
 
   .flip-wrapper {
     width: 100%;
@@ -286,6 +350,8 @@ body {
       gap: 2rem;
 
       align-items: center;
+
+
     }
 
     &__result {
@@ -297,6 +363,14 @@ body {
       align-items: center;
       gap: 2rem;
 
+      @media screen and (max-width: $med) {
+        gap: 0;
+      }
+
+      @media screen and (max-width: $small) {
+        gap: 2rem;
+      }
+
       h3 {
         width: 100%;
         font-size: 2.5rem;
@@ -304,6 +378,14 @@ body {
         text-align: center;
         border-bottom: 0.125rem dashed var(--white);
         margin-bottom: 1.5rem;
+
+        @media screen and (max-width: $med) {
+          font-size: 2rem;
+        }
+
+        @media screen and (max-width: $small) {
+          font-size: 2.25rem;
+        }
 
       }
 
@@ -324,6 +406,11 @@ body {
         flex-direction: column;
         align-items: center;
 
+        @media screen and (max-width: $med) {
+          padding-bottom: 0.5rem;
+          font-size: 1.125rem;
+        }
+
         p {
           text-transform: uppercase;
           color: var(--white);
@@ -334,6 +421,7 @@ body {
           grid-template-columns: 7fr 3fr;
           gap: 1rem;
           justify-items: start;
+          align-items: center;
         }
 
         span {
@@ -349,6 +437,10 @@ body {
       .result__center {
         font-size: 1.125rem;
 
+        @media screen and (max-width: $med) {
+          font-size: 1rem;
+        }
+
         p {
           color: var(--grey);
           position: relative;
@@ -358,8 +450,15 @@ body {
           display: grid;
           grid-template-columns: 6fr 4fr;
           gap: 1.5rem;
+          align-items: center;
 
           text-align: left;
+
+          @media screen and (max-width: $med) {
+            grid-template-columns: 8fr 2fr;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+          }
         }
 
         p::before {
@@ -392,16 +491,28 @@ body {
 }
 
 
-
 h1 {
   font-size: 3rem;
+
+  @media screen and (max-width: $small) {
+    font-size: 2.5rem;
+    text-align: center;
+  }
 }
 
 h2 {
   font-size: 2.25rem;
   text-align: center;
+
+  @media screen and (max-width: $small) {
+    font-size: 2rem;
+  }
 }
 
 h3 {
   font-size: 1.5rem;
+
+  @media screen and (max-width: $small) {
+    font-size: 1.25rem;
+  }
 }

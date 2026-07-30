@@ -31,6 +31,7 @@ body {
   gap: 1.5rem;
   color: var(--white);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 2rem 0;
 }
 
 .sr-only {
@@ -55,6 +56,18 @@ body {
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
+}
+@media screen and (max-width: 75rem) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .container {
+    grid-template-columns: 100%;
+    grid-template-rows: 4fr 5fr;
+    background-color: var(--bg);
+  }
 }
 
 .subheading-container {
@@ -87,6 +100,11 @@ body {
 .data-group {
   width: 100%;
 }
+@media screen and (max-width: 50rem) {
+  .data-group {
+    width: 90%;
+  }
+}
 
 .data {
   background-color: var(--data-container);
@@ -99,6 +117,22 @@ body {
   justify-content: start;
   align-items: center;
   gap: 4rem;
+}
+@media screen and (max-width: 75rem) {
+  .data {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .data {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .data table {
+    margin: 0 auto;
+  }
 }
 .data table,
 .data th,
@@ -130,9 +164,11 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .data .amount-paid-container input {
   width: 40%;
+  height: 2rem;
 }
 .data .submit-btn {
   width: 30%;
@@ -168,6 +204,19 @@ body {
   border-radius: 1rem;
   padding: 2rem;
 }
+@media screen and (max-width: 75rem) {
+  .information-modal {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .information-modal {
+    width: 80%;
+  }
+  .information-modal h3 {
+    font-size: 1.5rem;
+  }
+}
 .information-modal::backdrop {
   background: rgba(0, 0, 0, 0.6);
   cursor: pointer;
@@ -190,7 +239,8 @@ body {
 }
 .information-modal div {
   width: 95%;
-  height: 90%;
+  height: 85%;
+  padding-top: 5%;
   margin: 0 auto;
 }
 .information-modal div h3 {
@@ -213,6 +263,16 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+@media screen and (max-width: 75rem) {
+  .result {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .result {
+    padding: 0;
+  }
 }
 .result .flip-wrapper {
   width: 100%;
@@ -250,6 +310,16 @@ body {
   align-items: center;
   gap: 2rem;
 }
+@media screen and (max-width: 75rem) {
+  .result .display__result {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .result .display__result {
+    gap: 2rem;
+  }
+}
 .result .display__result h3 {
   width: 100%;
   font-size: 2.5rem;
@@ -257,6 +327,16 @@ body {
   text-align: center;
   border-bottom: 0.125rem dashed var(--white);
   margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 75rem) {
+  .result .display__result h3 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .result .display__result h3 {
+    font-size: 2.25rem;
+  }
 }
 .result .display__result .result__top,
 .result .display__result .result__center {
@@ -272,6 +352,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 75rem) {
+  .result .display__result .result__top {
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+}
 .result .display__result .result__top p {
   text-transform: uppercase;
   color: var(--white);
@@ -280,6 +366,7 @@ body {
   grid-template-columns: 7fr 3fr;
   gap: 1rem;
   justify-items: start;
+  align-items: center;
 }
 .result .display__result .result__top span {
   color: var(--accent);
@@ -291,6 +378,11 @@ body {
 .result .display__result .result__center {
   font-size: 1.125rem;
 }
+@media screen and (max-width: 75rem) {
+  .result .display__result .result__center {
+    font-size: 1rem;
+  }
+}
 .result .display__result .result__center p {
   color: var(--grey);
   position: relative;
@@ -299,7 +391,15 @@ body {
   display: grid;
   grid-template-columns: 6fr 4fr;
   gap: 1.5rem;
+  align-items: center;
   text-align: left;
+}
+@media screen and (max-width: 75rem) {
+  .result .display__result .result__center p {
+    grid-template-columns: 8fr 2fr;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }
 .result .display__result .result__center p::before {
   content: "⚡";
@@ -319,12 +419,28 @@ body {
 h1 {
   font-size: 3rem;
 }
+@media screen and (max-width: 50rem) {
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
 
 h2 {
   font-size: 2.25rem;
   text-align: center;
 }
+@media screen and (max-width: 50rem) {
+  h2 {
+    font-size: 2rem;
+  }
+}
 
 h3 {
   font-size: 1.5rem;
+}
+@media screen and (max-width: 50rem) {
+  h3 {
+    font-size: 1.25rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
