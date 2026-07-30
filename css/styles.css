@@ -412,6 +412,43 @@ body {
   color: var(--white);
   text-align: right;
 }
+.result .display__empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result .display__empty h3 {
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  border-bottom: 0.125rem dashed var(--white);
+  margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 75rem) {
+  .result .display__empty h3 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .result .display__empty h3 {
+    font-size: 2.25rem;
+  }
+}
+.result .display__empty span {
+  width: 70%;
+}
+.result .display__empty p {
+  padding-bottom: 0.5rem;
+  margin-left: 2.75rem;
+  position: relative;
+}
+.result .display__empty p::before {
+  content: "⚡";
+  position: absolute;
+  left: -0.5rem;
+  transform: translateX(-100%);
+}
 .result .show {
   transform: rotateY(180deg);
 }

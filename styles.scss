@@ -481,6 +481,50 @@ body {
 
     }
 
+    &__empty {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+
+        font-size: 2.5rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        border-bottom: 0.125rem dashed var(--white);
+        margin-bottom: 1.5rem;
+
+        @media screen and (max-width: $med) {
+          font-size: 2rem;
+        }
+
+        @media screen and (max-width: $small) {
+          font-size: 2.25rem;
+        }
+
+      }
+
+      span {
+        width: 70%;
+      }
+
+      p {
+        padding-bottom: 0.5rem;
+        margin-left: 2.75rem;
+        position: relative;
+      }
+
+      p::before {
+        content: '⚡';
+        position: absolute;
+
+        left: -0.5rem;
+        transform: translateX(-100%);
+
+      }
+    }
+
   }
 
   .show {
