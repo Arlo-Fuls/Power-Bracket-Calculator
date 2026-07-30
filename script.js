@@ -11,6 +11,14 @@ const bracket_3_costField = document.getElementById("b3-cost");
 const bracket_4_minValueField = document.getElementById("b4-min");
 const bracket_4_costField = document.getElementById("b4-cost");
 
+// MODAL VARIABLES
+const OpenModalBtn1 = document.getElementById("modal-btn-1");
+const CloseModalBtn1 = document.getElementById("closeBtn-1");
+const dialog1 = document.getElementById("information-modal-1");
+const OpenModalBtn2 = document.getElementById("modal-btn-2");
+const CloseModalBtn2 = document.getElementById("closeBtn-2");
+const dialog2 = document.getElementById("information-modal-2");
+
 const VAT_fraction = 0.13044;
 
 const tarrifData = [
@@ -76,6 +84,27 @@ function calculateUnitAmount(payment) {
 // Only for testing
 paymentInputField.addEventListener("change", () => {
   calculateUnitAmount(paymentInputField.value);
+});
+
+// MODAL CODE
+OpenModalBtn1.addEventListener("click", () => dialog1.showModal());
+CloseModalBtn1.addEventListener("click", () => dialog1.close());
+
+OpenModalBtn2.addEventListener("click", () => dialog2.showModal());
+CloseModalBtn2.addEventListener("click", () => dialog2.close());
+
+dialog1.addEventListener("click", (e) => {
+  const rect = dialog1.getBoundingClientRect();
+  if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+    dialog1.close();
+  }
+});
+
+dialog2.addEventListener("click", (e) => {
+  const rect = dialog2.getBoundingClientRect();
+  if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+    dialog2.close();
+  }
 });
 
 bracket_1_maxValueField = document.getElementById("b1-max");
