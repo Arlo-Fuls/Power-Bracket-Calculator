@@ -22,7 +22,7 @@ const OpenModalBtn2 = document.getElementById("modal-btn-2");
 const CloseModalBtn2 = document.getElementById("closeBtn-2");
 const dialog2 = document.getElementById("information-modal-2");
 
-const VAT_fraction = 0.13044;
+const VAT_fraction = 0.130435;
 
 const tarrifData = [
   {
