@@ -22,7 +22,7 @@ const OpenModalBtn2 = document.getElementById("modal-btn-2");
 const CloseModalBtn2 = document.getElementById("closeBtn-2");
 const dialog2 = document.getElementById("information-modal-2");
 
-const VAT_fraction = 0.130435;
+const VAT_fraction = 0.15;
 
 const tarrifData = [
   {
@@ -52,7 +52,7 @@ const tarrifData = [
 
 function calculateUnitAmount(payment) {
   let unitTotal = 0;
-  const VAT_deduction = payment * VAT_fraction;
+  const VAT_deduction = (payment * VAT_fraction) / (1 + VAT_fraction);
   const startBracketIndex = tarrifData.findIndex(({ max }) => max >= unitTotal);
   let paymentRemaining = payment - VAT_deduction;
 
@@ -70,7 +70,7 @@ function calculateUnitAmount(payment) {
         const unitAdded = paymentRemaining / tarrifData[i]["price"];
         unitTotal += unitAdded;
 
-        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${unitAdded.toFixed(2)}</span></p>`;
+        resultHTML_center += `<p>Bracket ${i + 1} units purchased: <span>${unitAdded.toFixed(2)}kWh</span></p>`;
         if (bracketUnitsRemaining - unitAdded.toFixed(2) >= 1) {
           resultHTML_bottom += `<p>Amount of units remaining in Bracket ${i + 1}: <span>${(bracketUnitsRemaining - unitAdded).toFixed(2)}kWh</span></p>
                   <p>Additional payment required to use up remainder of this bracket: <span>R${((bracketCostRemaining - paymentRemaining) / (1 - VAT_fraction)).toFixed(2)}</span></p>`;
@@ -104,7 +104,7 @@ function calculateUnitAmount(payment) {
                 <h3>Calculation Details</h3>
 
                 <span class="result__middle">
-                  <p>VAT amount calculated (@13.044%): <span> R${VAT_deduction.toFixed(2)}</span></p>
+                  <p>VAT amount calculated (@15%): <span> R${VAT_deduction.toFixed(2)}</span></p>
                   ${resultHTML_center}
                 </span>
 
